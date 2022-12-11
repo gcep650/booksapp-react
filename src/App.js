@@ -6,6 +6,7 @@ import DataSource from './DataSource';
 import './App.css';
 import History from './History';
 import Book from './Book';
+import CreateBook from './CreateBook';
 
 class App extends React.Component {
 
@@ -48,6 +49,7 @@ class App extends React.Component {
                         <BookList bookList={this.state.bookList} handleShowBook={this.showOneBook} handleDeleteBook={this.deleteOneBook} />
                     } />
                     <Route exact path='/show/:bookId' element={<Book book={this.state.bookList[this.state.selectedId]} />} />
+                    <Route exact path='/add' element={<CreateBook />} />
                 </Routes>
             </BrowserRouter>
         );
