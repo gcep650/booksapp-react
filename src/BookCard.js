@@ -12,6 +12,11 @@ class BookCard extends React.Component {
         this.props.deleteBook(this.props.book.book_id);
     }
 
+    editBook = (event) => {
+        console.log('editing book id: ', this.props.book.book_id);
+        this.props.editBook(this.props.book.book_id);
+    }
+
     render() {
         return (
             <div className="card" style={{width: '18rem'}}>
@@ -19,7 +24,7 @@ class BookCard extends React.Component {
                     <h5 className="card-title">{this.props.book.title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{this.props.book.author}</h6>
                     <a href="#" onClick={this.showBook} className="btn btn-primary">View</a>
-                    <a href="#" className="btn btn-secondary">Edit</a>
+                    <a href="#" onClick={this.editBook} className="btn btn-secondary">Edit</a>
                     <a href="#" onClick={this.deleteBook} className="btn btn-danger">Delete</a>
                 </div>
             </div>

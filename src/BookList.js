@@ -11,10 +11,14 @@ class BookList extends React.Component {
         this.props.handleDeleteBook(book_id);
     }
 
+    handleEditBook = (book_id) => {
+        this.props.handleEditBook(book_id);
+    }
+
     render() {
         const books = this.props.bookList.map((book) => {
             return (
-                <BookCard book={book} showBook={this.handleShowBook} deleteBook={this.handleDeleteBook} />
+                <BookCard book={book} showBook={this.handleShowBook} deleteBook={this.handleDeleteBook} editBook={this.handleEditBook} />
             );
         });
 
