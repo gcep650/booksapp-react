@@ -34,13 +34,18 @@ class App extends React.Component {
         this.setState({selectedId: index}, History.push('/show/' + index),console.log('state', this.state));
     }
 
+    deleteOneBook = async (book_id) => {
+        await DataSource.delete('/books/' + book_id);
+        this.loadBooks();
+    }
+
     render() {
         return (
             <BrowserRouter>
                 <Navbar />
                 <Routes>
                     <Route exact path='/' element={
-                        <BookList bookList={this.state.bookList} handleShowBook={this.showOneBook} />
+                        <BookList bookList={this.state.bookList} handleShowBook={this.showOneBook} handleDeleteBook={this.deleteOneBook} />
                     } />
                     <Route exact path='/show/:bookId' element={<Book book={this.state.bookList[this.state.selectedId]} />} />
                 </Routes>
